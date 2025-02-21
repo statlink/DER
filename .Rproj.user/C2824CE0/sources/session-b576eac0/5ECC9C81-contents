@@ -1,0 +1,30 @@
+paf.boot <- function(y, a, R = 1000) {
+  index <- paf::paf(y, a)
+  boot <- matrix(0, R, 4)
+  n <- length(y)
+  Y <- y
+  for (i in 1:R) {
+    ind <- Rfast2::Sample.int(n, n, replace = TRUE)
+    y <- Y[ind]
+    y <- y / mean(y)
+    h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
+    d <- Rfast::vecdist(y)
+    fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
+    fhata <- fhat^a
+    paf <- sum( fhata * d ) / n^2
+    alien <- mean(d)
+    ident <- mean(fhata)
+    rho <- paf / (alien * ident) - 1
+    boot[i, ] <- c(paf, alien, ident, 1 + rho)
+  }
+  colnames(boot) <- c("paf", "alienation", "identification", "1 + rho")
+  mesoi <- Rfast::colmeans(boot)
+  bias <- index - mesoi
+  se <- Rfast::colVars(boot, std = TRUE)
+  ci <- Rfast2::colQuantile( boot, probs = c(0.025, 0.975) )
+  info <- rbind(mesoi, bias, se, ci)
+  colnames(info) <- colnames(boot)
+  rownames(info) <- c("mesoi", "bias", "se", "2.5%", "97.5%" )
+  list(boot = boot, index = index, info = info)
+}
+

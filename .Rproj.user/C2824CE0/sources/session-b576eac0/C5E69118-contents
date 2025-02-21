@@ -1,0 +1,9 @@
+#useDynLib(pchc, .registration = TRUE)
+
+importFrom("Rfast", rowmeans, vecdist, colmeans, colVars)
+importFrom("Rfast2", Sample.int, Quantile)
+importFrom("stats", dnorm, sd)
+
+exportPattern("^[[:alpha:]]+")
+exportPattern("^[^\\.]")
+

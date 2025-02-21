@@ -1,0 +1,77 @@
+\name{Bootstrapping the PaF income polarization index}
+\alias{paf.boot}
+\title{
+Bootstrapping the PaF income polarization index
+}
+
+\description{
+Bootstrapping the PaF income polarization index
+}
+
+\usage{
+paf.boot(y, a, R = 1000)
+}
+
+\arguments{
+\item{y}{
+A numeric vector with income data.
+}
+\item{a}{
+The value of \eqn{\alpha}. This can be a number only, between 0.25 and 1.
+}
+\item{R}{
+The number of bootstrap resamples to perform.
+}
+}
+
+\details{
+The function compute the PaF index of Duclos, Esteban and Ray (2004) for a specific value of \eqn{\alpha}, the alienation and identification components, the 1 + normalized covariance, and also their bootstrap estimates, the estimated bias and the estimated standard error of each.
+}
+
+\value{
+A list including:
+\item{boot}{
+A matrix with the bootstrap estimates.
+}
+\item{index}{
+The estimates.
+}
+\item{mesoi}{
+The bootstrap based estimates.
+}
+\item{bias}{
+The bootstrap estimated bias of the estimates.
+}
+\item{se}{
+The bootstrap estimated standard errors of the estimates.
+}
+\item{ci}{
+The 95\% percentile bootstrap confidence interval for the PaF index.
+}
+}
+
+\references{
+Duclos J. Y., Esteban, J. and Ray D. (2006). Polarization: concepts, measurement, estimation. In The Social Economics of Poverty (pp. 54--102). Routledge.
+
+Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement, estimation. Econometrica, 72(6): 1737--1772.
+}
+
+\author{
+Michail Tsagris.
+
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+}
+
+%\note{
+%%  ~~further notes~~
+%}
+
+\seealso{
+\code{\link{paf}
+}
+}
+
+\examples{
+y <- rgamma(100, 500, 0.03)
+paf.boot(y, 0.25)
+}

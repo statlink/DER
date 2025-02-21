@@ -1,0 +1,10 @@
+paf.boot <- function(y, a, R = 1000) {
+  res <- matrix(0, R, 4)
+  n <- length(y)
+  for (i in 1:R) {
+    ind <- Rfast2::Sample.int(n, n, replace = TRUE)
+    res[i, ] <- paf::paf(y[ind], a)
+  }
+  res
+}
+

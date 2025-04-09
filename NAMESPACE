@@ -1,6 +1,6 @@
 #useDynLib(pchc, .registration = TRUE)
 
-importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow)
+importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply)
 importFrom("Rfast2", Sample.int, colQuantile)
 importFrom("stats", dnorm, sd)
 

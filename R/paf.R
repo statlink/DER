@@ -6,7 +6,8 @@ paf <- function(y, a) {
     h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
     fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
     fhata <- fhat^a
-    paf <- sum( fhata * d ) / n^2
+    #paf <- sum( fhata * d ) / n^2
+    paf <- sum( Rfast::eachcol.apply(d, fhata) ) / n^2
     alien <- mean(d)
     ident <- mean(fhata)
     rho <- paf / (alien * ident) - 1
@@ -22,7 +23,8 @@ paf <- function(y, a) {
       h <- com * a[i]^0.1  ## bandwidth
       fhat <- Rfast::rowmeans( exp( d2 / h^2 ) ) / sqrt(2 * pi) / h
       fhata <- fhat^a[i]
-      paf[i] <- sum( fhata * d ) / n^2
+      #paf[i] <- sum( fhata * d ) / n^2
+      paf[i] <- sum( Rfast::eachcol.apply(d, fhata) ) / n^2
       ident[i] <- mean(fhata)
     }
     rho <- paf / ( alien * ident ) - 1

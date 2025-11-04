@@ -10,23 +10,22 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// paf_fun
-List paf_fun(NumericVector y, double a, double h, int ncores);
-RcppExport SEXP _DER_paf_fun(SEXP ySEXP, SEXP aSEXP, SEXP hSEXP, SEXP ncoresSEXP) {
+// paf
+SEXP paf(NumericVector y, NumericVector a, int ncores);
+RcppExport SEXP _DER_paf(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
-    Rcpp::traits::input_parameter< double >::type a(aSEXP);
-    Rcpp::traits::input_parameter< double >::type h(hSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP);
     Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
-    rcpp_result_gen = Rcpp::wrap(paf_fun(y, a, h, ncores));
+    rcpp_result_gen = Rcpp::wrap(paf(y, a, ncores));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_DER_paf_fun", (DL_FUNC) &_DER_paf_fun, 4},
+    {"_DER_paf", (DL_FUNC) &_DER_paf, 3},
     {NULL, NULL, 0}
 };
 

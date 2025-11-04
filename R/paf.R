@@ -1,17 +1,20 @@
-paf <- function(y, a) {
+paf <- function(y, a, ncores = 1) {
   y <- y / mean(y)
   n <- length(y)
   d <- Rfast::vecdist(y)
   if ( length(a) == 1 ) {
     h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
-    fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
-    fhata <- fhat^a
-    #paf <- sum( fhata * d ) / n^2
-    paf <- sum( Rfast::eachcol.apply(d, fhata) ) / n^2
-    alien <- mean(d)
-    ident <- mean(fhata)
-    rho <- paf / (alien * ident) - 1
-    res <- c(paf, alien, ident, 1 + rho)
+    # fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
+    # fhata <- fhat^a
+    # #paf <- sum( fhata * d ) / n^2
+    # paf <- sum( Rfast::eachcol.apply(d, fhata) ) / n^2
+    # alien <- mean(d)
+    # ident <- mean(fhata)
+    # rho <- paf / (alien * ident) - 1
+    # res <- c(paf, alien, ident, 1 + rho)
+    reslist <- paf_fun(y, a, h, ncores)
+    rho <- reslist$paf / (reslist$alien * reslist$ident) - 1
+    res <- c(reslist$paf, reslist$alien, reslist$ident, 1 + rho)
     names(res) <- c("paf", "alienation", "identification", "1 + rho")
   } else {
     com <- 4.7 / sqrt(n) * sd(y)

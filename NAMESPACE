@@ -1,9 +1,9 @@
-#useDynLib(pchc, .registration = TRUE)
+useDynLib(DER, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom(RcppParallel,RcppParallelLibs)
 
 importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply)
 importFrom("Rfast2", Sample.int, colQuantile)
 importFrom("stats", dnorm, sd)
 
-exportPattern("^[[:alpha:]]+")
-exportPattern("^[^\\.]")
-
+export(colpafs, colpafs2, paf, paf.boot, paf2, paf2.boot, pafF)

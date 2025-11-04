@@ -1,8 +1,0 @@
-#useDynLib(pchc, .registration = TRUE)
-
-importFrom("Rfast", rowmeans, vecdist)
-importFrom("stats", dnorm, sd)
-
-exportPattern("^[[:alpha:]]+")
-exportPattern("^[^\\.]")
-

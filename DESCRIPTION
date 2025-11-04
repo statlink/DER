@@ -2,10 +2,9 @@ Package: DER
 Type: Package
 Title: Income Polarization Index
 Version: 1.2
-Authors@R: c(person("Michail", "Tsagris", role = c("aut", "cre"),
-             email = "mtsagris@uoc.gr"),
-            person("Christos", "Adam", role = "aut",
-             email = "econp266@econ.soc.uoc.gr",
+Date: 2025-11-04
+Authors@R: c(person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr"),
+            person("Christos", "Adam", role = "aut", email = "econp266@econ.soc.uoc.gr",
              comment = c(ORCID = "0009-0003-3244-7034")))
 Maintainer: Michail Tsagris <mtsagris@uoc.gr>
 Depends: R (>= 4.0)

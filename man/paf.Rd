@@ -46,9 +46,9 @@ Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement
 }
 
 \author{
-Michail Tsagris.
+Michail Tsagris and Christos Adam.
 
-R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr} and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 }
 
 %\note{

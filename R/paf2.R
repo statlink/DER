@@ -3,7 +3,7 @@ paf2 <- function(y, a) {
   n <- length(y)
 
   if ( length(a) == 1 ) {
-    h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
+    h <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE) * a^0.1  ## bandwidth
     dD <- dS <- outer(y, y, "-")
     fhat <- Rfast::rowmeans( exp( -0.5 * dD^2 / h^2 ) ) / sqrt(2 * pi) / h
     fhata <- fhat^a
@@ -15,7 +15,7 @@ paf2 <- function(y, a) {
     names(res) <- c("paf", "deprivation", "surplus")
   } else {
     dD <- dS <- outer(y, y, "-")
-    com <- 4.7 / sqrt(n) * sd(y)
+    com <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE)
     d2 <-  -0.5 * dD^2
     dD[dD > 0] <- 0
     dS[dS < 0] <- 0

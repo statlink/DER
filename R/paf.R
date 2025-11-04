@@ -2,7 +2,7 @@ paf <- function(y, a, ncores = 1) {
   y <- y / mean(y)
   n <- length(y)
   if ( length(a) == 1 ) {
-    h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
+    h <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE) * a^0.1  ## bandwidth
     # fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
     # fhata <- fhat^a
     # #paf <- sum( fhata * d ) / n^2
@@ -17,7 +17,7 @@ paf <- function(y, a, ncores = 1) {
     names(res) <- c("paf", "alienation", "identification", "1 + rho")
   } else {
     d <- Rfast::vecdist(y)
-    com <- 4.7 / sqrt(n) * sd(y)
+    com <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE)
     d2 <-  -0.5 * d^2
     alien <- mean(d)
     lena <- length(a)

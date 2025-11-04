@@ -2,7 +2,7 @@ useDynLib(DER, .registration=TRUE)
 importFrom(Rcpp, evalCpp)
 importFrom(RcppParallel,RcppParallelLibs)
 
-importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply)
+importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply, Var)
 importFrom("Rfast2", Sample.int, colQuantile)
 importFrom("stats", dnorm, sd)
 

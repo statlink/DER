@@ -11,11 +11,11 @@ pafF <- function(y, a) {
   kpdf <- function(x)  sapply(x, kernel)
 
   if ( length(a) == 1 ) {
-    h <- 4.7 /sqrt(n) * sd(y) * a^0.1  ## bandwidth
+    h <- 4.7 /sqrt(n) * Rfast::Var(y, std = TRUE) * a^0.1  ## bandwidth
     fhat <- kpdf(y)  ## kernel density estimate
     est <- mean(fhat^a * ayi)  ## polarization index
   } else {
-    com <- 4.7 /sqrt(n) * sd(y)
+    com <- 4.7 /sqrt(n) * Rfast::Var(y, std = TRUE)
     la <- length(a)
     est <- numeric(la)
     for ( i in 1:la ) {

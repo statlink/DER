@@ -9,7 +9,7 @@ paf2.boot <- function(y, a, R = 1000) {
     ind <- Rfast2::Sample.int(n, n, replace = TRUE)
     y <- Y[ind]
     y <- y / mean(y)
-    h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
+    h <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE) * a^0.1  ## bandwidth
     dD <- dS <- outer(y, y, "-")
     fhat <- Rfast::rowmeans( exp( -0.5 * dD^2 / h^2 ) ) / sqrt(2 * pi) / h
     fhata <- fhat^a

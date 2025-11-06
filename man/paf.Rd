@@ -11,7 +11,7 @@ The PaF income polarization index
 
 \usage{
 paf(y, a, ncores = 1)
-pafF(y, a)
+pafF(y, a, ncores = 1)
 }
 
 \arguments{
@@ -19,36 +19,49 @@ pafF(y, a)
 A numeric vector with income data.
 }
 \item{a}{
-The value of \eqn{\alpha}. This can either be a number or a vector with many values. In any case, 
-the \eqn{\alpha} may take values between 0.25 and 1.
+The value of \eqn{\alpha}. This can either be a number or a vector with many
+values. In any case, the \eqn{\alpha} may take values between 0.25 and 1.
 }
 \item{ncores}{
-The number of cores to use. If greater than 1, parallel computing will take place. It is advisable 
-to use it if you have many observations and or many variables, otherwise it will slow down the process. 
-The default is 1, meaning that code is executed serially.
+The number of cores to use. If greater than 1, parallel computing will take
+place. It is advisable to use it if you have many observations and or many
+variables, otherwise it will slow down the process. The default is 1, meaning
+that code is executed serially.
 }
 }
 
 \details{
-The functions compute the PaF index of Duclos, Esteban and Ray (2004) for either a specific value, or for a range of values, of \eqn{\alpha}. The pafF() estimates the index using Eq. (8) and (9) in the paper, whereas paf() is faster as it uses Eq. (3) of the paper.
+The functions compute the PaF index of Duclos, Esteban and Ray (2004) for either
+a specific value, or for a range of values, of \eqn{\alpha}. The pafF()
+estimates the index using Eq. (8) and (9) in the paper, whereas paf() is faster
+as it uses Eq. (3) of the paper.
 }
 
 \value{
-The paf() function, for a single value of \eqn{\alpha}, returns a vector with the PaF index, the alienation (twice the Gini index) and  identification components and 1 + the normalized covariance. If a range of values of \eqn{\alpha} are given, it will return a matrix with the same components, where each row corresponds to a specific value of \eqn{\alpha}.
+The paf() function, for a single value of \eqn{\alpha}, returns a vector with
+the PaF index, the alienation (twice the Gini index) and  identification
+components and 1 + the normalized covariance. If a range of values of
+\eqn{\alpha} are given, it will return a matrix with the same components, where
+each row corresponds to a specific value of \eqn{\alpha}.
 
-The pafF() function returns only the PaF index for either one or more values of \eqn{\alpha}.
+The pafF() function returns only the PaF index for either one or more values of
+\eqn{\alpha}.
 }
 
 \references{
-Duclos J. Y., Esteban, J. and Ray D. (2006). Polarization: concepts, measurement, estimation. In The Social Economics of Poverty (pp. 54--102). Routledge.
+Duclos J. Y., Esteban, J. and Ray D. (2006). Polarization: concepts,
+measurement, estimation. In The Social Economics of Poverty (pp. 54--102).
+Routledge.
 
-Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement, estimation. Econometrica, 72(6): 1737--1772.
+Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts,
+measurement, estimation. Econometrica, 72(6): 1737--1772.
 }
 
 \author{
 Michail Tsagris and Christos Adam.
 
-R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr} and Christos Adam \email{econp266@econ.soc.uoc.gr}.
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}
+and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 }
 
 %\note{

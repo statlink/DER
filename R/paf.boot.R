@@ -1,22 +1,10 @@
-paf.boot <- function(y, a, R = 1000) {
-  index <- DER::paf(y, a)
+paf.boot <- function(y, a, R = 1000, ncores = 1) {
+  index <- DER::paf(y, a, ncores)
   boot <- matrix(0, R, 4)
   n <- length(y)
-  Y <- y
+  
   for (i in 1:R) {
-    ind <- Rfast2::Sample.int(n, n, replace = TRUE)
-    y <- Y[ind]
-    y <- y / mean(y)
-    h <- 4.7 / sqrt(n) * sd(y) * a^0.1  ## bandwidth
-    d <- Rfast::vecdist(y)
-    fhat <- Rfast::rowmeans( exp( -0.5 * d^2 / h^2 ) ) / sqrt(2 * pi) / h
-    fhata <- fhat^a
-    #paf <- sum( fhata * d ) / n^2
-    paf <- sum( Rfast::eachcol.apply(d, fhata) ) / n^2
-    alien <- mean(d)
-    ident <- mean(fhata)
-    rho <- paf / (alien * ident) - 1
-    boot[i, ] <- c(paf, alien, ident, 1 + rho)
+    boot[i, ] <-DER::paf(y[Rfast2::Sample.int(n, n, replace = TRUE)], a, ncores)
   }
   colnames(boot) <- c("paf", "alienation", "identification", "1 + rho")
   mesoi <- Rfast::colmeans(boot)

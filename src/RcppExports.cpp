@@ -10,22 +10,92 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// colpafs
+SEXP colpafs(const NumericMatrix& y, double a, int ncores);
+RcppExport SEXP _DER_colpafs(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type y(ySEXP);
+    Rcpp::traits::input_parameter< double >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(colpafs(y, a, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
+// colpafs2
+SEXP colpafs2(const NumericMatrix& y, double a, int ncores);
+RcppExport SEXP _DER_colpafs2(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type y(ySEXP);
+    Rcpp::traits::input_parameter< double >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(colpafs2(y, a, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
 // paf
-SEXP paf(NumericVector y, NumericVector a, int ncores);
+SEXP paf(const NumericVector y, const NumericVector a, int ncores);
 RcppExport SEXP _DER_paf(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(paf(y, a, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
+// paf2_parallel
+SEXP paf2_parallel(NumericVector y, NumericVector a, int ncores);
+RcppExport SEXP _DER_paf2_parallel(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
     Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP);
     Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
-    rcpp_result_gen = Rcpp::wrap(paf(y, a, ncores));
+    rcpp_result_gen = Rcpp::wrap(paf2_parallel(y, a, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
+// paf2
+SEXP paf2(const NumericVector y, const NumericVector a, int ncores);
+RcppExport SEXP _DER_paf2(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(paf2(y, a, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pafF_helper
+SEXP pafF_helper(const NumericVector y, const NumericVector a, int ncores);
+RcppExport SEXP _DER_pafF_helper(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(pafF_helper(y, a, ncores));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_DER_colpafs", (DL_FUNC) &_DER_colpafs, 3},
+    {"_DER_colpafs2", (DL_FUNC) &_DER_colpafs2, 3},
     {"_DER_paf", (DL_FUNC) &_DER_paf, 3},
+    {"_DER_paf2_parallel", (DL_FUNC) &_DER_paf2_parallel, 3},
+    {"_DER_paf2", (DL_FUNC) &_DER_paf2, 3},
+    {"_DER_pafF_helper", (DL_FUNC) &_DER_pafF_helper, 3},
     {NULL, NULL, 0}
 };
 

@@ -1,8 +1,395 @@
 [
     {
-        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
-        "file_last_write": 1762269533.0,
+        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs.cpp",
+        "file_last_write": 1762524979.0,
         "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+        "file_last_write": 1762524979.0,
+        "definitions": [
+            {
+                "usr": "c:colpafs2.cpp@157@macro@RESTRICT",
+                "kind": 9,
+                "parent_name": "",
+                "name": "RESTRICT",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 7,
+                "column": 11,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@fast_mean#4*1d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "fast_mean(const double *__restrict, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 20,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@fast_sd#4*1d#I#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "fast_sd(const double *__restrict, int, double)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 27,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@colpafs2_cpp#&1$@N@Rcpp@S@Matrix>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "colpafs2_cpp(const Rcpp::NumericMatrix &, double)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 37,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@ColPaf2Worker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "ColPaf2Worker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 94,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@ColPaf2Worker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "ColPaf2Worker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 109,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@colpafs2_parallel#&1$@N@Rcpp@S@Matrix>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "colpafs2_parallel(const Rcpp::NumericMatrix &, double, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 153,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@colpafs2#&1$@N@Rcpp@S@Matrix>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "colpafs2(const Rcpp::NumericMatrix &, double, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/colpafs2.cpp",
+                "line": 169,
+                "column": 6,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+        "file_last_write": 1762524979.0,
+        "definitions": [
+            {
+                "usr": "c:paf.cpp@242@macro@RESTRICT",
+                "kind": 9,
+                "parent_name": "",
+                "name": "RESTRICT",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 10,
+                "column": 11,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@format_alpha#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "format_alpha(double)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 23,
+                "column": 20,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@fast_mean#4*1d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "fast_mean(const double *__restrict, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 36,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@fast_sd#4*1d#I#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "fast_sd(const double *__restrict, int, double)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 59,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@paf_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "paf_cpp(Rcpp::NumericVector, Rcpp::NumericVector)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 68,
+                "column": 6,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@MeanWorker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "MeanWorker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 277,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@MeanWorker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "MeanWorker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 284,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@MeanWorker@F@join#&1$@S@MeanWorker#",
+                "kind": 7,
+                "parent_name": "MeanWorker",
+                "name": "join(const MeanWorker &)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 293,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@parallel_mean#&1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "parallel_mean(const Rcpp::NumericVector &, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 296,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@VarWorker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "VarWorker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 304,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@VarWorker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "VarWorker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 312,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@VarWorker@F@join#&1$@S@VarWorker#",
+                "kind": 7,
+                "parent_name": "VarWorker",
+                "name": "join(const VarWorker &)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 322,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@parallel_sd#&1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "parallel_sd(const Rcpp::NumericVector &, double, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 325,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@KernelPAFWorker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "KernelPAFWorker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 333,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@KernelPAFWorker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "KernelPAFWorker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 354,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@KernelPAFWorker@F@join#&1$@S@KernelPAFWorker#",
+                "kind": 7,
+                "parent_name": "KernelPAFWorker",
+                "name": "join(const KernelPAFWorker &)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 380,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@AlienWorker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "AlienWorker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 388,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@AlienWorker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "AlienWorker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 395,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@AlienWorker@F@join#&1$@S@AlienWorker#",
+                "kind": 7,
+                "parent_name": "AlienWorker",
+                "name": "join(const AlienWorker &)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 408,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@parallel_alien#&1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "parallel_alien(const Rcpp::NumericVector &, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 411,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@paf_parallel#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "paf_parallel(Rcpp::NumericVector, Rcpp::NumericVector, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 421,
+                "column": 6,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@paf#1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#1S0_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "paf(const Rcpp::NumericVector, const Rcpp::NumericVector, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf.cpp",
+                "line": 490,
+                "column": 6,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/paf2.cpp",
+        "file_last_write": 1762524979.0,
+        "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+        "file_last_write": 1762524979.0,
+        "definitions": [
+            {
+                "usr": "c:pafF_helper.cpp@157@macro@RESTRICT",
+                "kind": 9,
+                "parent_name": "",
+                "name": "RESTRICT",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 7,
+                "column": 11,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@PolarWorker",
+                "kind": 3,
+                "parent_name": "",
+                "name": "PolarWorker",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 15,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@PolarWorker@F@operator()#k#k#",
+                "kind": 7,
+                "parent_name": "PolarWorker",
+                "name": "operator(std::size_t, std::size_t)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 31,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@polarization_parallel#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "polarization_parallel(Rcpp::NumericVector, Rcpp::NumericVector, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 53,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@polarization_cpp#1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#1S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "polarization_cpp(const Rcpp::NumericVector, const Rcpp::NumericVector)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 100,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@pafF_helper#1$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#1S0_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "pafF_helper(const Rcpp::NumericVector, const Rcpp::NumericVector, int)",
+                "file": "C:/Users/mtsag/Documents/GitHub/DER/src/pafF_helper.cpp",
+                "line": 176,
+                "column": 6,
+                "hidden": false
+            }
+        ],
         "hidden": false
     }
 ]

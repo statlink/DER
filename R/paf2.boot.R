@@ -1,25 +1,12 @@
-paf2.boot <- function(y, a, R = 1000) {
-  index <- DER::paf2(y, a)
+paf2.boot <- function(y, a, R = 1000, ncores = 1) {
+  index <- DER::paf2(y, a, ncores)
   boot <- matrix(0, R, 3)
-  colnames(boot) <- c("paf", "deprivation", "surplus")
   n <- length(y)
-  Y <- y
-
+  
   for (i in 1:R) {
-    ind <- Rfast2::Sample.int(n, n, replace = TRUE)
-    y <- Y[ind]
-    y <- y / mean(y)
-    h <- 4.7 / sqrt(n) * Rfast::Var(y, std = TRUE) * a^0.1  ## bandwidth
-    dD <- dS <- outer(y, y, "-")
-    fhat <- Rfast::rowmeans( exp( -0.5 * dD^2 / h^2 ) ) / sqrt(2 * pi) / h
-    fhata <- fhat^a
-    dD[dD > 0] <- 0
-    dS[dS < 0] <- 0
-    D <- sum( fhata * abs(dD) ) / n^2
-    S <- sum( fhata * dS ) / n^2
-    boot[i, ] <- c(D + S, D, S)
+    boot[i, ] <-DER::paf2(y[Rfast2::Sample.int(n, n, replace = TRUE)], a, ncores)
   }
-
+  colnames(boot) <- c("paf", "deprivation", "surplus")
   mesoi <- Rfast::colmeans(boot)
   bias <- index - mesoi
   se <- Rfast::colVars(boot, std = TRUE)

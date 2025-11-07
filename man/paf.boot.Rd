@@ -9,7 +9,7 @@ Bootstrapping the PaF income polarization index
 }
 
 \usage{
-paf.boot(y, a, R = 1000)
+paf.boot(y, a, R = 1000, ncores = 1)
 }
 
 \arguments{
@@ -22,10 +22,20 @@ The value of \eqn{\alpha}. This can be a number only, between 0.25 and 1.
 \item{R}{
 The number of bootstrap resamples to perform.
 }
+\item{ncores}{
+The number of cores to use. If greater than 1, parallel computing will take
+place. It is advisable to use it if you have many observations and or many
+variables, otherwise it will slow down the process. The default is 1, meaning
+that code is executed serially.
+}
 }
 
 \details{
-The function compute the PaF index of Duclos, Esteban and Ray (2004) for a specific value of \eqn{\alpha}, the alienation and identification components, the 1 + normalized covariance, and also their bootstrap estimates, the estimated bias, the estimated standard error of each and the percentile bootstrap confidence interval for the PaF index are returned.
+The function compute the PaF index of Duclos, Esteban and Ray (2004) for a
+specific value of \eqn{\alpha}, the alienation and identification components,
+the 1 + normalized covariance, and also their bootstrap estimates, the estimated
+bias, the estimated standard error of each and the percentile bootstrap
+confidence interval for the PaF index are returned.
 }
 
 \value{
@@ -37,20 +47,26 @@ A matrix with the bootstrap estimates.
 The estimates.
 }
 \item{info}{
-A matrix with: the bootstrap based estimates, the bootstrap estimated bias of the estimates, the bootstrap estimated standard errors of the estimates, and the 95\% percentile bootstrap confidence intervals for each component.
+A matrix with: the bootstrap based estimates, the bootstrap estimated bias of
+the estimates, the bootstrap estimated standard errors of the estimates, and the
+95\% percentile bootstrap confidence intervals for each component.
 }
 }
 
 \references{
-Duclos J. Y., Esteban, J. and Ray D. (2006). Polarization: concepts, measurement, estimation. In The Social Economics of Poverty (pp. 54--102). Routledge.
+Duclos J. Y., Esteban, J. and Ray D. (2006). Polarization: concepts,
+measurement, estimation. In The Social Economics of Poverty (pp. 54--102).
+Routledge.
 
-Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement, estimation. Econometrica, 72(6): 1737--1772.
+Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts,
+measurement, estimation. Econometrica, 72(6): 1737--1772.
 }
 
 \author{
-Michail Tsagris.
+Michail Tsagris and Christos Adam.
 
-R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}
+and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 }
 
 %\note{

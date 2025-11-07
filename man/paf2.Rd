@@ -9,7 +9,7 @@ The decomposed PaF income polarization index
 }
 
 \usage{
-paf2(y, a)
+paf2(y, a, ncores = 1)
 }
 
 \arguments{
@@ -17,29 +17,45 @@ paf2(y, a)
 A numeric vector with income data.
 }
 \item{a}{
-The value of \eqn{\alpha}. This can either be a number or a vector with many values. In any case, the \eqn{\alpha} may take values between 0.25 and 1.
+The value of \eqn{\alpha}. This can either be a number or a vector with many
+values. In any case, the \eqn{\alpha} may take values between 0.25 and 1.
+}
+\item{ncores}{
+The number of cores to use. If greater than 1, parallel computing will take
+place. It is advisable to use it if you have many observations and or many
+variables, otherwise it will slow down the process. The default is 1, meaning
+that code is executed serially.
 }
 }
 
 \details{
-The function compute the decomposed PaF index of Duclos, Esteban and Ray (2004) for either a specific value, or for a range of values, of \eqn{\alpha}. The decomposition is with respect to the deprivation and surplus components as suggested by Araar (2008).
+The function compute the decomposed PaF index of Duclos, Esteban and Ray (2004)
+for either a specific value, or for a range of values, of \eqn{\alpha}. The
+decomposition is with respect to the deprivation and surplus components as
+suggested by Araar (2008).
 }
 
 \value{
-For a single value of \eqn{\alpha}, the function returns a vector with the PaF index, the deprivation and the surplus components. If a range of values of \eqn{\alpha} are given, it will return a matrix with the same components, where each row corresponds to a specific value of \eqn{\alpha}.
+For a single value of \eqn{\alpha}, the function returns a vector with the PaF
+index, the deprivation and the surplus components. If a range of values of
+\eqn{\alpha} are given, it will return a matrix with the same components, where
+each row corresponds to a specific value of \eqn{\alpha}.
 }
 
 \references{
-Araar A. (2008). On the Decomposition of Polarization Indices: Illustrations with Chinese and Nigerian Household Surveys. CIRPEE Working Paper No. 08-06.
+Araar A. (2008). On the Decomposition of Polarization Indices: Illustrations
+with Chinese and Nigerian Household Surveys. CIRPEE Working Paper No. 08-06.
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1136142
 
-Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement, estimation. Econometrica, 72(6): 1737--1772.
+Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts,
+measurement, estimation. Econometrica, 72(6): 1737--1772.
 }
 
 \author{
-Michail Tsagris.
+Michail Tsagris and Christos Adam.
 
-R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}
+and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 }
 
 %\note{

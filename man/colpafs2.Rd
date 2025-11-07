@@ -9,37 +9,51 @@ Many decomposed PaF income polarization indices
 }
 
 \usage{
-colpafs2(y, a)
+colpafs2(y, a, ncores = 1)
 }
 
 \arguments{
 \item{y}{
-A numeric matrix with income data. The PaF index will be computed for each column sperately.
+A numeric matrix with income data. The PaF index will be computed for each
+column seperately.
 }
 \item{a}{
 The value of \eqn{\alpha}, a number between 0.25 and 1.
 }
+\item{ncores}{
+The number of cores to use. If greater than 1, parallel computing will take
+place. It is advisable to use it if you have many observations and or many
+variables, otherwise it will slow down the process. The default is 1, meaning
+that code is executed serially.
+}
 }
 
 \details{
-The function compute the decomposed PaF index of Duclos, Esteban and Ray (2004) for a specific value of \eqn{\alpha}, for each column of the matrix. The decomposition is with respect to the deprivation and surplus components as suggested by Araar (2008).
+The function compute the decomposed PaF index of Duclos, Esteban and Ray (2004)
+for a specific value of \eqn{\alpha}, for each column of the matrix. The
+decomposition is with respect to the deprivation and surplus components as
+suggested by Araar (2008).
 }
 
 \value{
-A matrix, where each row contains the PaF index, the deprivation and the surplus components.
+A matrix, where each row contains the PaF index, the deprivation and the surplus
+components.
 }
 
 \references{
-Araar A. (2008). On the Decomposition of Polarization Indices: Illustrations with Chinese and Nigerian Household Surveys. CIRPEE Working Paper No. 08-06.
+Araar A. (2008). On the Decomposition of Polarization Indices: Illustrations
+with Chinese and Nigerian Household Surveys. CIRPEE Working Paper No. 08-06.
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1136142
 
-Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts, measurement, estimation. Econometrica, 72(6): 1737--1772.
+Duclos J. Y., Esteban, J. and Ray D. (2004). Polarization: concepts,
+measurement, estimation. Econometrica, 72(6): 1737--1772.
 }
 
 \author{
-Michail Tsagris.
+Michail Tsagris and Christos Adam.
 
-R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}
+and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 }
 
 %\note{

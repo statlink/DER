@@ -48,8 +48,5 @@ and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 \examples{
 set.seed(123)
 y <- rnorm(200)
-
-dens   <- kde(y, h=1)
-
-plot(y, dens, main = "KDE at sample points", ylab = "Density")
+dens <- kde(y, h = 1)
 }

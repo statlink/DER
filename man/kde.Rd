@@ -32,10 +32,12 @@ evaluated only at the observed sample points themselves.
 For a sample \eqn{y_1, \dots, y_n}, the KDE at a point \eqn{y_i} is defined as
 
 \deqn{
-\hat{f}(y_i) = \frac{1}{n h} \sum_{j=1}^n K\!\left(\frac{y_i - y_j}{h}\right), \quad i = 1, \dots, n.
+\hat{f}(y_i) = \frac{1}{n h} \sum_{j=1}^n K\!\left(\frac{y_i - y_j}{h}\right),
+\quad i = 1, \dots, n.
 }
 
-where \eqn{K(z)} is the kernel function. In these functions, a Gaussian kernel is used:
+where \eqn{K(z)} is the kernel function. In these functions, a Gaussian kernel
+is used:
 
 \deqn{
 K(z) = \frac{1}{\sqrt{2\pi}} \exp\!\left(-\tfrac{1}{2} z^2\right).

@@ -9,8 +9,8 @@ colpafs2 <- function(y, a, ncores = 1L) {
     .Call(`_DER_colpafs2`, y, a, ncores)
 }
 
-kde <- function(y, ncores = 1L) {
-    .Call(`_DER_kde`, y, ncores)
+kde <- function(y, h, ncores = 1L) {
+    .Call(`_DER_kde`, y, h, ncores)
 }
 
 paf <- function(y, a, ncores = 1L) {

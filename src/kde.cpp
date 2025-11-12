@@ -14,25 +14,25 @@ using namespace Rcpp;
 using namespace RcppParallel;
 
 // -------------------- Serial version --------------------
-NumericVector kde_cpp(const NumericVector y) {
+NumericVector kde_cpp(const NumericVector y, const double h) {
   int n = y.size();
   const double* RESTRICT yptr = y.begin();
   
-  // mean
-  double sum_y = 0.0;
-  for (int i = 0; i < n; i++) sum_y += yptr[i];
-  double mean_y = sum_y / n;
-  
-  // variance
-  double ssq = 0.0;
-  for (int i = 0; i < n; i++) {
-    double diff = yptr[i] - mean_y;
-    ssq += diff * diff;
-  }
-  double sd_y = std::sqrt(ssq / (n - 1));
-  
-  // bandwidth (Silverman's rule)
-  double h = 1.06 * sd_y * std::pow(n, -0.2);
+  // // mean
+  // double sum_y = 0.0;
+  // for (int i = 0; i < n; i++) sum_y += yptr[i];
+  // double mean_y = sum_y / n;
+  // 
+  // // variance
+  // double ssq = 0.0;
+  // for (int i = 0; i < n; i++) {
+  //   double diff = yptr[i] - mean_y;
+  //   ssq += diff * diff;
+  // }
+  // double sd_y = std::sqrt(ssq / (n - 1));
+  // 
+  // // bandwidth (Silverman's rule)
+  // double h = 1.06 * sd_y * std::pow(n, -0.2);
   
   NumericVector est(n);
   double sqrt_2pi = std::sqrt(2.0 * M_PI);
@@ -111,21 +111,23 @@ struct KDEWorker : public Worker {
   }
 };
 
-NumericVector kde_parallel(const NumericVector y, const int ncores = 1) {
+NumericVector kde_parallel(const NumericVector y, const double h, const int ncores = 1) {
+  // NumericVector kde_parallel(const NumericVector y, const int ncores = 1) {
+  //   int n = y.size();
+  //   if (n < 2) stop("y must have length >= 2");
+  //   double double_n = static_cast<double>(n);
+  //   // Parallel reduce for mean and variance
+  //   AccumWorker accum(y);
+  //   parallelReduce(0, n, accum, ncores);
+  //   
+  //   double mean_y = accum.sum / double_n;
+  //   double var_y  = (accum.sumsq - double_n * mean_y * mean_y) / (n - 1);
+  //   double sd_y   = std::sqrt(var_y);
+  //   
+  //   // Bandwidth
+  //   double h = 1.06 * sd_y * std::pow(double_n, -0.2);
+  
   int n = y.size();
-  if (n < 2) stop("y must have length >= 2");
-  double double_n = static_cast<double>(n);
-  // Parallel reduce for mean and variance
-  AccumWorker accum(y);
-  parallelReduce(0, n, accum, ncores);
-  
-  double mean_y = accum.sum / double_n;
-  double var_y  = (accum.sumsq - double_n * mean_y * mean_y) / (n - 1);
-  double sd_y   = std::sqrt(var_y);
-  
-  // Bandwidth
-  double h = 1.06 * sd_y * std::pow(double_n, -0.2);
-  
   NumericVector est(n);
   double sqrt_2pi = std::sqrt(2.0 * M_PI);
   double norm_const = 1.0 / (n * h * sqrt_2pi);
@@ -138,14 +140,14 @@ NumericVector kde_parallel(const NumericVector y, const int ncores = 1) {
 }
 
 // [[Rcpp::export]]
-NumericVector kde(const NumericVector y, const int ncores = 1) {
+NumericVector kde(const NumericVector y, const double h, const int ncores = 1) {
 #if RCPP_PARALLEL_USE_TBB
   if (ncores > 1){
-    return kde_parallel(y, ncores);
+    return kde_parallel(y, h, ncores);
   } else {
-    return kde_cpp(y);
+    return kde_cpp(y, h);
   }
 #else
-  return kde_cpp(y);
+  return kde_cpp(y, h);
 #endif
 }

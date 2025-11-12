@@ -48,11 +48,12 @@ h = 1.06 \cdot \hat{\sigma} \cdot n^{-1/5},
 }
 
 where \eqn{\hat{\sigma}} is the sample standard deviation.
-
-The output is therefore a vector of density estimates corresponding to each
-observation in \code{y}.
 }
 
+\value{
+Α numeric vector of density estimates corresponding to each observation in
+\code{y}.
+}
 
 \author{
 Michail Tsagris and Christos Adam.

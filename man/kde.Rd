@@ -31,28 +31,6 @@ that code is executed serially.
 The kernel density estimate (KDE) provides a smooth estimate of the probability
 density function of the sample data. In this implementation, the KDE is
 evaluated only at the observed sample points themselves.
-
-For a sample \eqn{y_1, \dots, y_n}, the KDE at a point \eqn{y_i} is defined as
-
-\deqn{
-\hat{f}(y_i) = \frac{1}{n h} \sum_{j=1}^n K\!\left(\frac{y_i - y_j}{h}\right),
-\quad i = 1, \dots, n.
-}
-
-where \eqn{K(z)} is the kernel function. In these functions, a Gaussian kernel
-is used:
-
-\deqn{
-K(z) = \frac{1}{\sqrt{2\pi}} \exp\!\left(-\tfrac{1}{2} z^2\right).
-}
-
-% The bandwidth \eqn{h} is chosen according to Silverman's rule of thumb:
-% 
-% \deqn{
-% h = 1.06 \cdot \hat{\sigma} \cdot n^{-1/5},
-% }
-% 
-% where \eqn{\hat{\sigma}} is the sample standard deviation.
 }
 
 \value{

@@ -34,8 +34,7 @@ evaluated only at the observed sample points themselves.
 }
 
 \value{
-Α numeric vector of density estimates corresponding to each observation in
-\code{y}.
+A numeric vector of density estimates corresponding to each observation in y.
 }
 
 \author{

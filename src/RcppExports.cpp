@@ -36,6 +36,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// kde
+NumericVector kde(const NumericVector y, const int ncores);
+RcppExport SEXP _DER_kde(SEXP ySEXP, SEXP ncoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const int >::type ncores(ncoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(kde(y, ncores));
+    return rcpp_result_gen;
+END_RCPP
+}
 // paf
 SEXP paf(const NumericVector y, const NumericVector a, int ncores);
 RcppExport SEXP _DER_paf(SEXP ySEXP, SEXP aSEXP, SEXP ncoresSEXP) {
@@ -92,6 +104,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_DER_colpafs", (DL_FUNC) &_DER_colpafs, 3},
     {"_DER_colpafs2", (DL_FUNC) &_DER_colpafs2, 3},
+    {"_DER_kde", (DL_FUNC) &_DER_kde, 2},
     {"_DER_paf", (DL_FUNC) &_DER_paf, 3},
     {"_DER_paf2_parallel", (DL_FUNC) &_DER_paf2_parallel, 3},
     {"_DER_paf2", (DL_FUNC) &_DER_paf2, 3},

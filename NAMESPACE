@@ -6,4 +6,4 @@ importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply
 importFrom("Rfast2", Sample.int, colQuantile)
 importFrom("stats", dnorm, sd)
 
-export(colpafs, colpafs2, paf, paf.boot, paf2, paf2.boot, pafF)
+export(colpafs, colpafs2, paf, paf.boot, paf2, paf2.boot, pafF, kde)

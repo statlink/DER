@@ -9,12 +9,15 @@ Kernel density estimation of a univariate sample using a Gaussian kernel.
 }
 
 \usage{
-kde(y, ncores = 1)
+kde(y, h, ncores = 1)
 }
 
 \arguments{
 \item{y}{
 A numeric vector containing the sample data.
+}
+\item{h}{
+A numeric value for boundwidth.
 }
 \item{ncores}{
 The number of cores to use. If greater than 1, parallel computing will take
@@ -43,13 +46,13 @@ is used:
 K(z) = \frac{1}{\sqrt{2\pi}} \exp\!\left(-\tfrac{1}{2} z^2\right).
 }
 
-The bandwidth \eqn{h} is chosen according to Silverman's rule of thumb:
-
-\deqn{
-h = 1.06 \cdot \hat{\sigma} \cdot n^{-1/5},
-}
-
-where \eqn{\hat{\sigma}} is the sample standard deviation.
+% The bandwidth \eqn{h} is chosen according to Silverman's rule of thumb:
+% 
+% \deqn{
+% h = 1.06 \cdot \hat{\sigma} \cdot n^{-1/5},
+% }
+% 
+% where \eqn{\hat{\sigma}} is the sample standard deviation.
 }
 
 \value{
@@ -68,7 +71,7 @@ and Christos Adam \email{econp266@econ.soc.uoc.gr}.
 set.seed(123)
 y <- rnorm(200)
 
-dens   <- kde(y)
+dens   <- kde(y, h=1)
 
 plot(y, dens, main = "KDE at sample points", ylab = "Density")
 }

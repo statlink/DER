@@ -52,7 +52,7 @@ K(z) = \frac{1}{\sqrt{2\pi}} \exp\!\left(-\tfrac{1}{2} z^2\right).
 % h = 1.06 \cdot \hat{\sigma} \cdot n^{-1/5},
 % }
 % 
-% where \eqn{\hat{\sigma}} is the sample standard deviation. 
+% where \eqn{\hat{\sigma}} is the sample standard deviation.
 }
 
 \value{

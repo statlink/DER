@@ -22,7 +22,7 @@ by 2.
 Package: \tab DER\cr
 Type: \tab Package\cr
 Version: \tab 1.2 \cr
-Date: \tab 2025-11-04 \cr
+Date: \tab 2025-11-12 \cr
 }
 }
 

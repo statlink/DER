@@ -17,6 +17,7 @@ using namespace RcppParallel;
 NumericVector kde_cpp(const NumericVector y, const double h) {
   int n = y.size();
   const double* RESTRICT yptr = y.begin();
+  
   // // mean
   // double sum_y = 0.0;
   // for (int i = 0; i < n; i++) sum_y += yptr[i];

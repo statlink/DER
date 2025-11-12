@@ -2,5 +2,6 @@
 pafF <- function(y, a, ncores = 1) {
   ## y is the outcome of the aldmck function
   ## a is the a value
-  return(pafF_helper(Rfast::Sort(y), a, ncores)) ## the ys must be sorted
+  return(pafF_helper(Rfast::Sort(y, parallel = (ncores > 1)),
+                     a, ncores)) ## the ys must be sorted
 }

@@ -15,9 +15,9 @@
 using namespace Rcpp;
 using namespace RcppParallel;
 
-#ifdef RCPP_PARALLEL_USE_TBB
-#include <tbb/global_control.h>  // For controlling the number of threads
-#endif
+// #ifdef RCPP_PARALLEL_USE_TBB
+// #include <tbb/global_control.h>  // For controlling the number of threads
+// #endif
 
 // format like R: minimal decimals, no trailing zeros
 inline std::string format_alpha(double val) {
@@ -295,8 +295,8 @@ struct MeanWorker : public RcppParallel::Worker {
 
 inline double parallel_mean(const NumericVector& y, int ncores) {
   MeanWorker worker(y);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelReduce(0, y.size(), worker);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelReduce(0, y.size(), worker, ncores);
   return worker.sum / static_cast<double>(y.size());
 }
 
@@ -324,8 +324,8 @@ struct VarWorker : public RcppParallel::Worker {
 
 inline double parallel_sd(const NumericVector& y, double mean, int ncores) {
   VarWorker worker(y, mean);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelReduce(0, y.size(), worker);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelReduce(0, y.size(), worker, ncores);
   return std::sqrt(worker.ssq / (static_cast<double>(y.size()) - 1.0));
 }
 
@@ -410,8 +410,8 @@ struct AlienWorker : public RcppParallel::Worker {
 
 inline double parallel_alien(const NumericVector& y, int ncores) {
   AlienWorker worker(y);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelReduce(0, y.size(), worker);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelReduce(0, y.size(), worker, ncores);
   double double_n = static_cast<double>(y.size());
   double inv_n2   = 1.0 / (double_n * double_n);
   return worker.sum * inv_n2;
@@ -448,8 +448,8 @@ SEXP paf_parallel(NumericVector y, NumericVector a, int ncores = 1) {
     double norm_const = 1.0 / (std::sqrt(2.0 * M_PI) * h);
     
     KernelPAFWorker worker(y_norm, alpha, inv_h_sq, norm_const, inv_n);
-    tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-    parallelReduce(0, n, worker);
+    // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+    parallelReduce(0, n, worker, ncores);
     
     ident[k] = worker.ident_sum * inv_n;
     paf[k]   = worker.paf_sum   * inv_n2;

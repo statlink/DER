@@ -15,9 +15,9 @@
 using namespace Rcpp;
 using namespace RcppParallel;
 
-#ifdef RCPP_PARALLEL_USE_TBB
-#include <tbb/global_control.h>  // For controlling the number of threads
-#endif
+// #ifdef RCPP_PARALLEL_USE_TBB
+// #include <tbb/global_control.h>  // For controlling the number of threads
+// #endif
 
 // format like R: minimal decimals, no trailing zeros
 inline std::string format_alpha(double val) {
@@ -183,8 +183,8 @@ struct MeanWorker : public Worker {
 
 inline double parallel_mean(const NumericVector& y, int ncores) {
   MeanWorker w(y);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelReduce(0, y.size(), w);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelReduce(0, y.size(), w, ncores);
   return w.sum / static_cast<double>(y.size());
 }
 
@@ -209,8 +209,8 @@ struct VarWorker : public Worker {
 
 inline double parallel_sd(const NumericVector& y, double mean, int ncores) {
   VarWorker w(y, mean);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelReduce(0, y.size(), w);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelReduce(0, y.size(), w, ncores);
   return std::sqrt(w.ssq / (static_cast<double>(y.size()) - 1.0));
 }
 
@@ -296,8 +296,8 @@ SEXP paf2_parallel(NumericVector y, NumericVector a, int ncores = 1) {
     const double norm_const = 1.0 / (std::sqrt(2.0 * M_PI) * h);
     
     PAF2Worker worker(y_norm, alpha, inv_h_sq, norm_const, inv_n);
-    tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-    parallelReduce(0, n, worker);
+    // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+    parallelReduce(0, n, worker, ncores);
     
     D[k] = worker.D_sum * inv_n2;
     S[k] = worker.S_sum * inv_n2;

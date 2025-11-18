@@ -1,19 +1,11 @@
 Package: DER
 Type: Package
 Title: Income Polarization Index
-<<<<<<< HEAD
 Version: 1.4
 Date: 2025-11-18
 Authors@R: c(person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr"),
             person("Christos", "Adam", role = "aut", email = "econp266@econ.soc.uoc.gr",
              comment = c(ORCID = "0009-0003-3244-7034")))
-=======
-Version: 1.3
-Date: 2025-11-12
-Authors@R: c( person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr"),
-              person("Christos", "Adam", role = "aut", email = "econp266@econ.soc.uoc.gr",
-              comment = c(ORCID = "0009-0003-3244-7034") ) )
->>>>>>> cab180388a7e6d3bebf2301086e574b2d9085f7f
 Maintainer: Michail Tsagris <mtsagris@uoc.gr>
 Depends: R (>= 4.0)
 Imports: Rfast, Rfast2, Rcpp, RcppParallel, stats

@@ -4,7 +4,7 @@ paf.boot <- function(y, a, R = 1000, ncores = 1) {
   n <- length(y)
   
   for (i in 1:R) {
-    boot[i, ] <-DER::paf(y[Rfast2::Sample.int(n, n, replace = TRUE)], a, ncores)
+    boot[i, ] <- DER::paf(y[Rfast2::Sample.int(n, n, replace = TRUE)], a, ncores)
   }
   colnames(boot) <- c("paf", "alienation", "identification", "1 + rho")
   mesoi <- Rfast::colmeans(boot)

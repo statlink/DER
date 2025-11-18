@@ -12,9 +12,9 @@
 using namespace Rcpp;
 using namespace RcppParallel;
 
-#ifdef RCPP_PARALLEL_USE_TBB
-#include <tbb/global_control.h>
-#endif
+// #ifdef RCPP_PARALLEL_USE_TBB
+// #include <tbb/global_control.h>
+// #endif
 
 // ---- Fast mean ----
 inline double fast_mean(const double* RESTRICT ptr, int n) {
@@ -158,8 +158,8 @@ NumericMatrix colpafs2_parallel(const NumericMatrix& Y, double a, int ncores = 1
   if (rn.size() == p) rownames(res) = rn;
   
   ColPaf2Worker worker(Y, a, res);
-  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-  parallelFor(0, p, worker);
+  // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelFor(0, p, worker, ncores);
   
   return res;
 }

@@ -87,8 +87,8 @@ NumericVector polarization_parallel(NumericVector y, NumericVector a, int ncores
     NumericVector contrib(n);
     PolarWorker worker(y, prefix, h, inv_nh, sqrt_2pi, m, two_over_n, a[k], contrib);
     
-    // tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
-    parallelFor(0, n, worker, ncores);
+    tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+    parallelFor(0, n, worker);
     
     double sum_est = std::accumulate(contrib.begin(), contrib.end(), 0.0);
     est[k] = (sum_est / n) / std::pow(m, 1.0 - a[k]);

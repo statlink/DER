@@ -13,6 +13,10 @@
 using namespace Rcpp;
 using namespace RcppParallel;
 
+#ifdef RCPP_PARALLEL_USE_TBB
+#include <tbb/global_control.h>  // For controlling the number of threads
+#endif
+
 // -------------------- Serial version --------------------
 NumericVector kde_cpp(const NumericVector y, const double h) {
   int n = y.size();
@@ -134,7 +138,8 @@ NumericVector kde_parallel(const NumericVector y, const double h, const int ncor
   
   // Parallel KDE evaluation
   KDEWorker worker(y, h, norm_const, est);
-  parallelFor(0, n, worker, ncores);
+  tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+  parallelFor(0, n, worker);
   
   return est;
 }

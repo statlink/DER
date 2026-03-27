@@ -20,8 +20,8 @@ by 2.
 \tabular{ll}{
 Package: \tab DER\cr
 Type: \tab Package\cr
-Version: \tab 1.2 \cr
-Date: \tab 2025-11-12 \cr
+Version: \tab 1.5 \cr
+Date: \tab 2026-03-27 \cr
 }
 }
 

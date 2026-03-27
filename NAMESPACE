@@ -2,8 +2,9 @@ useDynLib(DER, .registration=TRUE)
 importFrom(Rcpp, evalCpp)
 importFrom(RcppParallel,RcppParallelLibs)
 
+importFrom("rangen", Sample.int)
 importFrom("Rfast", rowmeans, vecdist, colmeans, colVars, eachrow, eachcol.apply, Var)
-importFrom("Rfast2", Sample.int, colQuantile)
+importFrom("Rfast2", colQuantile)
 importFrom("stats", dnorm, sd)
 
 export(colpafs, colpafs2, paf, paf.boot, paf2, paf2.boot, pafF, kde)

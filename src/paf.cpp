@@ -448,7 +448,9 @@ SEXP paf_parallel(NumericVector y, NumericVector a, int ncores = 1) {
     double norm_const = 1.0 / (std::sqrt(2.0 * M_PI) * h);
     
     KernelPAFWorker worker(y_norm, alpha, inv_h_sq, norm_const, inv_n);
+#if RCPP_PARALLEL_USE_TBB
     tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
     parallelReduce(0, n, worker);
     
     ident[k] = worker.ident_sum * inv_n;

@@ -138,7 +138,9 @@ NumericVector kde_parallel(const NumericVector y, const double h, const int ncor
   
   // Parallel KDE evaluation
   KDEWorker worker(y, h, norm_const, est);
+#if RCPP_PARALLEL_USE_TBB
   tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
   parallelFor(0, n, worker);
   
   return est;

@@ -183,7 +183,9 @@ struct MeanWorker : public Worker {
 
 inline double parallel_mean(const NumericVector& y, int ncores) {
   MeanWorker w(y);
+#if RCPP_PARALLEL_USE_TBB
   tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
   parallelReduce(0, y.size(), w);
   return w.sum / static_cast<double>(y.size());
 }
@@ -209,7 +211,9 @@ struct VarWorker : public Worker {
 
 inline double parallel_sd(const NumericVector& y, double mean, int ncores) {
   VarWorker w(y, mean);
+#if RCPP_PARALLEL_USE_TBB
   tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
   parallelReduce(0, y.size(), w);
   return std::sqrt(w.ssq / (static_cast<double>(y.size()) - 1.0));
 }
@@ -296,7 +300,9 @@ SEXP paf2_parallel(NumericVector y, NumericVector a, int ncores = 1) {
     const double norm_const = 1.0 / (std::sqrt(2.0 * M_PI) * h);
     
     PAF2Worker worker(y_norm, alpha, inv_h_sq, norm_const, inv_n);
+#if RCPP_PARALLEL_USE_TBB
     tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
     parallelReduce(0, n, worker);
     
     D[k] = worker.D_sum * inv_n2;

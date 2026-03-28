@@ -218,7 +218,9 @@ NumericMatrix colpafs_parallel(const NumericMatrix& Y, double a, int ncores = 1)
   if (rn.size() == p) rownames(res) = rn;
   
   ColPafWorker worker(Y, a, res);
+#if RCPP_PARALLEL_USE_TBB
   tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
   parallelFor(0, p, worker);
   
   return res;

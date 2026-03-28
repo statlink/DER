@@ -9,6 +9,10 @@
 #  define RESTRICT __restrict
 #endif
 
+#ifdef RCPP_PARALLEL_USE_TBB
+#include <tbb/global_control.h>  // For controlling the number of threads
+#endif
+
 using namespace Rcpp;
 using namespace RcppParallel;
 
@@ -87,7 +91,9 @@ NumericVector polarization_parallel(NumericVector y, NumericVector a, int ncores
     NumericVector contrib(n);
     PolarWorker worker(y, prefix, h, inv_nh, sqrt_2pi, m, two_over_n, a[k], contrib);
     
+#if RCPP_PARALLEL_USE_TBB
     tbb::global_control gc(tbb::global_control::max_allowed_parallelism, ncores);
+#endif
     parallelFor(0, n, worker);
     
     double sum_est = std::accumulate(contrib.begin(), contrib.end(), 0.0);

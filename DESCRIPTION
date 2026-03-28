@@ -2,7 +2,7 @@ Package: DER
 Type: Package
 Title: Income Polarization Index
 Version: 1.5
-Date: 2026-03-27
+Date: 2026-03-28
 Authors@R: c(person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr"),
             person("Christos", "Adam", role = "aut", email = "econp266@econ.soc.uoc.gr",
              comment = c(ORCID = "0009-0003-3244-7034")))
